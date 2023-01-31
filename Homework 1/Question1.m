@@ -4,6 +4,7 @@
 % Question 1
 
 clear;
+clc;
 format long g;
 
 % Setup constants
