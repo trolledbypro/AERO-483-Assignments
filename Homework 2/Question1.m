@@ -43,3 +43,16 @@ S = 10 * eye(3);
 
 delta_r = inv(H'*L*H + S)*H'*L*delta_lambda;
 r_new = r + delta_r;
+
+%% Part 3
+P = 100*eye(3);
+R = 100*eye(3);
+P_inv = inv(P);
+R_inv = inv(R);
+delta_r_hat = [0;4;0];
+
+delta_delta_rho = delta_lambda - H*delta_r_hat;
+
+delta_delta_r = inv(H'*R_inv*H+P_inv)*H'*R_inv*delta_delta_rho;
+delta_r = delta_delta_r + delta_r_hat;
+r_new = delta_r + r;
